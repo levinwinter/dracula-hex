@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hex</title>
+</head>
+<body>
+    <header>
+        <img src="images/logo.svg" alt="HEX Logo">
+    </header>
+    <main>
+        <section>
+            <div class="hexagon"></div>
+        </section>
+        <section>
+            <span>
+                Players Online
+                <span>
+                    <%= playersOnline %>
+                </span>
+            </span>
+            <span>
+                Win Rate of Red
+                <span>
+                    <%= relativeWinsRed %>
+                </span>
+            </span>
+            <span>
+                Games Played
+                <span>
+                    <%= gamesPlayed %>
+                </span>
+            </span>
+        </section>
+        <section>
+            <img src="images/help.svg" alt="Help">
+        </section>
+    </main>
+</body>
+</html>
