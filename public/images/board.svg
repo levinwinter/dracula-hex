@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="443.04" height="330.648" viewBox="0 0 443.04 330.648" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="Polygon_54" x="0" y="0" width="181.04" height="176.648" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feFlood flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Polygon_59" x="43" y="77" width="181.04" height="176.648" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur-2"/>
+      <feFlood flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Polygon_62" x="86" y="154" width="181.04" height="176.648" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur-3"/>
+      <feFlood flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Polygon_55" x="88" y="0" width="181.04" height="176.648" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur-4"/>
+      <feFlood flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur-4"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Polygon_58" x="131" y="77" width="181.04" height="176.648" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur-5"/>
+      <feFlood flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur-5"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Polygon_61" x="174" y="154" width="181.04" height="176.648" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur-6"/>
+      <feFlood flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur-6"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Polygon_56" x="176" y="0" width="181.04" height="176.648" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur-7"/>
+      <feFlood flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur-7"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Polygon_57" x="219" y="77" width="181.04" height="176.648" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur-8"/>
+      <feFlood flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur-8"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Polygon_60" x="262" y="154" width="181.04" height="176.648" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur-9"/>
+      <feFlood flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur-9"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_5" data-name="Group 5" transform="translate(-182.98 -208.176)">
+    <g transform="matrix(1, 0, 0, 1, 182.98, 208.18)" filter="url(#Polygon_54)">
+      <g id="Polygon_54-2" data-name="Polygon 54" transform="translate(70.5 27) rotate(30)" fill="#44475a">
+        <path d="M 69.17098999023438 80 L 23.8289737701416 80 L 1.153059959411621 40.4999885559082 L 23.82899856567383 1 L 69.17098999023438 1 L 91.84693908691406 40.5 L 69.17098999023438 80 Z" stroke="none" id="tile0"/>
+        <path d="M 24.40799713134766 2 L 2.306129455566406 40.4999885559082 L 24.40796661376953 79 L 68.59199523925781 79 L 90.69387054443359 40.5 L 68.59199523925781 2 L 24.40799713134766 2 M 23.25001525878906 0 L 69.74996948242188 0 L 93 40.5 L 69.74996948242188 81 L 23.24998474121094 81 L 0 40.4999885559082 L 23.25001525878906 0 Z" stroke="none" fill="#e5e5df"/>
+      </g>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 182.98, 208.18)" filter="url(#Polygon_59)">
+      <g id="tile3" data-name="Polygon 59" transform="translate(113.5 104) rotate(30)" fill="#44475a">
+        <path d="M 69.17098999023438 80 L 23.8289737701416 80 L 1.153059959411621 40.4999885559082 L 23.82899856567383 1 L 69.17098999023438 1 L 91.84693908691406 40.5 L 69.17098999023438 80 Z" stroke="none"/>
+        <path d="M 24.40799713134766 2 L 2.306129455566406 40.4999885559082 L 24.40796661376953 79 L 68.59199523925781 79 L 90.69387054443359 40.5 L 68.59199523925781 2 L 24.40799713134766 2 M 23.25001525878906 0 L 69.74996948242188 0 L 93 40.5 L 69.74996948242188 81 L 23.24998474121094 81 L 0 40.4999885559082 L 23.25001525878906 0 Z" stroke="none" fill="#eb4e4e"/>
+      </g>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 182.98, 208.18)" filter="url(#Polygon_62)">
+      <g id="tile6" data-name="Polygon 62" transform="translate(156.5 181) rotate(30)" fill="#44475a">
+        <path d="M 69.17098999023438 80 L 23.8289737701416 80 L 1.153059959411621 40.4999885559082 L 23.82899856567383 1 L 69.17098999023438 1 L 91.84693908691406 40.5 L 69.17098999023438 80 Z" stroke="none"/>
+        <path d="M 24.40799713134766 2 L 2.306129455566406 40.4999885559082 L 24.40796661376953 79 L 68.59199523925781 79 L 90.69387054443359 40.5 L 68.59199523925781 2 L 24.40799713134766 2 M 23.25001525878906 0 L 69.74996948242188 0 L 93 40.5 L 69.74996948242188 81 L 23.24998474121094 81 L 0 40.4999885559082 L 23.25001525878906 0 Z" stroke="none" fill="#e5e5df"/>
+      </g>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 182.98, 208.18)" filter="url(#Polygon_55)">
+      <g id="Polygon_55-2" data-name="Polygon 55" transform="translate(158.5 27) rotate(30)" fill="#44475a">
+        <path d="M 69.17101287841797 80 L 23.8289852142334 80 L 1.153060078620911 40.5 L 23.82899856567383 1 L 69.17101287841797 1 L 91.84693908691406 40.5 L 69.17101287841797 80 Z" stroke="none" id="tile1"/>
+        <path d="M 24.40799713134766 2 L 2.306129455566406 40.5 L 24.40798187255859 79 L 68.59201812744141 79 L 90.69387054443359 40.5 L 68.59201812744141 2 L 24.40799713134766 2 M 23.25001525878906 0 L 69.75 0 L 93 40.5 L 69.75 81 L 23.25 81 L 0 40.5 L 23.25001525878906 0 Z" stroke="none" fill="#50fa7b"/>
+      </g>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 182.98, 208.18)" filter="url(#Polygon_58)">
+      <path id="tile4" data-name="Polygon 58" d="M69.75,0,93,40.5,69.75,81H23.25L0,40.5,23.25,0Z" transform="translate(201.5 104) rotate(30)" fill="#44475a"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 182.98, 208.18)" filter="url(#Polygon_61)">
+      <g id="tile7" data-name="Polygon 61" transform="translate(244.5 181) rotate(30)" fill="#44475a">
+        <path d="M 69.17101287841797 80 L 23.8289852142334 80 L 1.153060078620911 40.5 L 23.82899856567383 1 L 69.17101287841797 1 L 91.84693908691406 40.5 L 69.17101287841797 80 Z" stroke="none"/>
+        <path d="M 24.40799713134766 2 L 2.306129455566406 40.5 L 24.40798187255859 79 L 68.59201812744141 79 L 90.69387054443359 40.5 L 68.59201812744141 2 L 24.40799713134766 2 M 23.25001525878906 0 L 69.75 0 L 93 40.5 L 69.75 81 L 23.25 81 L 0 40.5 L 23.25001525878906 0 Z" stroke="none" fill="#50fa7b"/>
+      </g>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 182.98, 208.18)" filter="url(#Polygon_56)">
+      <g id="tile2" data-name="Polygon 56" transform="translate(246.5 27) rotate(30)" fill="#44475a">
+        <path d="M 69.17101287841797 80 L 23.8289852142334 80 L 1.153060078620911 40.5 L 23.82899856567383 1 L 69.17101287841797 1 L 91.84693908691406 40.5 L 69.17101287841797 80 Z" stroke="none"/>
+        <path d="M 24.40799713134766 2 L 2.306129455566406 40.5 L 24.40798187255859 79 L 68.59201812744141 79 L 90.69387054443359 40.5 L 68.59201812744141 2 L 24.40799713134766 2 M 23.25001525878906 0 L 69.75 0 L 93 40.5 L 69.75 81 L 23.25 81 L 0 40.5 L 23.25001525878906 0 Z" stroke="none" fill="#e5e5df"/>
+      </g>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 182.98, 208.18)" filter="url(#Polygon_57)">
+      <g id="tile5" data-name="Polygon 57" transform="translate(289.5 104) rotate(30)" fill="#44475a">
+        <path d="M 69.17101287841797 80 L 23.8289852142334 80 L 1.153060078620911 40.5 L 23.82899856567383 1 L 69.17101287841797 1 L 91.84693908691406 40.5 L 69.17101287841797 80 Z" stroke="none"/>
+        <path d="M 24.40799713134766 2 L 2.306129455566406 40.5 L 24.40798187255859 79 L 68.59201812744141 79 L 90.69387054443359 40.5 L 68.59201812744141 2 L 24.40799713134766 2 M 23.25001525878906 0 L 69.75 0 L 93 40.5 L 69.75 81 L 23.25 81 L 0 40.5 L 23.25001525878906 0 Z" stroke="none" fill="#eb4e4e"/>
+      </g>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 182.98, 208.18)" filter="url(#Polygon_60)">
+      <g id="tile8" data-name="Polygon 60" transform="translate(332.5 181) rotate(30)" fill="#44475a">
+        <path d="M 69.17101287841797 80 L 23.8289852142334 80 L 1.153060078620911 40.5 L 23.82899856567383 1 L 69.17101287841797 1 L 91.84693908691406 40.5 L 69.17101287841797 80 Z" stroke="none"/>
+        <path d="M 24.40799713134766 2 L 2.306129455566406 40.5 L 24.40798187255859 79 L 68.59201812744141 79 L 90.69387054443359 40.5 L 68.59201812744141 2 L 24.40799713134766 2 M 23.25001525878906 0 L 69.75 0 L 93 40.5 L 69.75 81 L 23.25 81 L 0 40.5 L 23.25001525878906 0 Z" stroke="none" fill="#e5e5df"/>
+      </g>
+    </g>
+  </g>
+</svg>
