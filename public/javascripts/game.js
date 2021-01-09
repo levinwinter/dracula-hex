@@ -1,14 +1,3 @@
-var game = function(id) {
-    this.playerRed = null,
-    this.playerGreen = null
-};
-
-module.exports = game;
-
-/**
- * Newly added are below
- */
-
 const socket = new WebSocket("ws://localhost:3000");
 
 const hexSelector = document.querySelectorAll('.hex');
