@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Hex Game</title>
+    <link rel="stylesheet" href="stylesheets/game.css">
+  </head>
+
+  <body style = "background-color:#282a36">
+    <h1 id = "notify"></h1>
+    <h2 style = "color:#f8f8f2;" id = "timer">Time elapsed : 00:00:00</h2>
+    <h2 style = "color:#f8f8f2;" id = "takenNum">Pieces on board : 0</h2>
+    <div class = "hexagonRed">
+      <div class = "hexagonRed" id = "playerRed"></div>
+      <div class = "playerRed"> Player 1</div>
+    </div>
+    <div class = "hexagonGreen">
+      <div class = "hexagonGreen" id = "playerGreen"></div>
+      <div class = "playerGreen"> Player 2</div>
+    </div>
+   <!--Hexagons svg object was here-->
+    <script src = '/javascripts/game.js'>
+    </script>
+  </body>
+  <div class = "hexagons">
+    <object id="boardSVG" data="/images/board.svg">board</object>
+  </div>
+</html>
