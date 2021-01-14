@@ -1,0 +1,82 @@
+html {
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+body {
+  width: 50%;
+  max-width: 700px;
+  min-width: 480px;
+  margin: 0 auto;
+}
+
+h2{
+  text-align : center; 
+  width: 50%;
+  max-width: 700px;
+  min-width: 480px;
+  margin: 0 auto;
+}
+
+.hexagons{
+  width : 60%;
+  max-width : 1000px;
+  min-width : 480px;
+  margin : 0 auto;
+}
+
+.hexagonRed {
+  display : block;
+  position: relative;
+  width: 135px; 
+  height: 77.94px;
+  background-color: #ff5555;
+  margin: 38.97px 0;
+} 
+
+.hexagonRed:before,
+.hexagonRed:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 67.5px solid transparent;
+  border-right: 67.5px solid transparent;
+}
+
+.hexagonRed:before {
+  bottom: 100%;
+  border-bottom: 38.97px solid #ff5555;
+}
+
+.hexagonRed:after {
+  top: 100%;
+  width: 0;
+  border-top: 38.97px solid #ff5555;
+}
+
+.hexagonGreen {
+  position: relative;
+  width: 135px; 
+  height: 77.97px;
+  background-color: #50fa7b;
+  margin: 38.97px 0;
+} 
+
+.hexagonGreen:before,
+.hexagonGreen:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 67.5px solid transparent;
+  border-right: 67.5px solid transparent;
+}
+
+.hexagonGreen:before {
+  bottom: 100%;
+  border-bottom: 38.97px solid #50fa7b;
+}
+
+.hexagonGreen:after {
+  top: 100%;
+  width: 0;
+  border-top: 38.97px solid #50fa7b;
+}
