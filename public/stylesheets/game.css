@@ -1,66 +1,115 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+html {
+  font-family: "Lucida Console", "Courier New", monospace;
 }
-
-a {
-  color: #00B7FF;
-}
-
-
-/* Newly added are below */
 
 body {
   width: 50%;
-  max-width: 800px;
+  max-width: 1000px;
   min-width: 480px;
   margin: 0 auto;
 }
 
-.timer{
-  position: absolute;
-  top: 15%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  color: #f8f8f2;
-  font-size: 40px;
+.notify{
+  text-align : center; 
+  color : #f1fa8c;
+  font-family : 'Courier New', Courier, monospace;
+}
+
+.redWin{
+  text-align : center; 
+  color : #ff5555;
+  font-family : 'Courier New', Courier, monospace;
+}
+
+.playerRed{
+  color : #f8f8f2;
+  font-size: large;
+  font-family : 'Courier New', Courier, monospace;
+}
+
+.greenWin{
+  text-align : center; 
+  color: #50fa7b;
   font-family: 'Courier New', Courier, monospace;
-  letter-spacing: 5px;
-
 }
 
-.elapsed{
+.playerGreen{
+  color : #f8f8f2;
+  font-size: large;
+  font-family : 'Courier New', Courier, monospace;
+}
+
+h2{
+  text-align : center; 
   width: 50%;
-  max-width: 800px;
+  max-width: 700px;
   min-width: 480px;
   margin: 0 auto;
-  font-size : 60px;
 }
 
-.hexagon {
+.hexagons{
+  width : 60%;
+  max-width : 1300px;
+  min-width : 480px;
+  margin : 0 auto;
+  margin-left : -5%;
+}
+
+
+.hexagonRed {
+  display : block;
   position: relative;
-  width: 300px; 
-  height: 173.21px;
-  background-color: #64C7CC;
-  margin: 86.60px 0;
-}
+  width: 135px; 
+  height: 77.94px;
+  background-color: #ff5555;
+  margin: 38.97px 0;
+} 
 
-.hexagon:before,
-.hexagon:after {
+.hexagonRed:before,
+.hexagonRed:after {
   content: "";
   position: absolute;
   width: 0;
-  border-left: 150px solid transparent;
-  border-right: 150px solid transparent;
+  border-left: 67.5px solid transparent;
+  border-right: 67.5px solid transparent;
 }
 
-.hexagon:before {
+.hexagonRed:before {
   bottom: 100%;
-  border-bottom: 86.60px solid #64C7CC;
+  border-bottom: 38.97px solid #ff5555;
 }
 
-.hexagon:after {
+.hexagonRed:after {
   top: 100%;
   width: 0;
-  border-top: 86.60px solid #64C7CC;
+  border-top: 38.97px solid #ff5555;
 }
+
+.hexagonGreen {
+  position: relative;
+  width: 135px; 
+  height: 77.97px;
+  background-color: #50fa7b;
+  margin: 38.97px 0;
+} 
+
+.hexagonGreen:before,
+.hexagonGreen:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 67.5px solid transparent;
+  border-right: 67.5px solid transparent;
+}
+
+.hexagonGreen:before {
+  bottom: 100%;
+  border-bottom: 38.97px solid #50fa7b;
+}
+
+.hexagonGreen:after {
+  top: 100%;
+  width: 0;
+  border-top: 38.97px solid #50fa7b;
+}
+
