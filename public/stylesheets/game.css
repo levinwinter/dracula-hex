@@ -2,11 +2,17 @@ html {
   font-family: "Lucida Console", "Courier New", monospace;
 }
 
+@media(min-height : 768px) and (min-width : 1366px){
+}
+
 body {
   width: 50%;
   max-width: 1000px;
   min-width: 480px;
   margin: 0 auto;
+
+  transform: scale(0.67);
+  transform-origin: 0 0;
 }
 
 .notify{
@@ -54,7 +60,6 @@ h2{
   margin : 0 auto;
   margin-left : -5%;
 }
-
 
 .hexagonRed {
   display : block;
@@ -112,4 +117,3 @@ h2{
   width: 0;
   border-top: 38.97px solid #50fa7b;
 }
-
