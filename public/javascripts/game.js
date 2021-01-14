@@ -1,97 +1,118 @@
 const socket = new WebSocket("ws://localhost:3000");
+let clickSound = new Audio("../data/click.wav");
+let winSound = new Audio("../data/win.wav");
+var totalTime; 
 
-const hexSelector = document.querySelectorAll('.hex');
-const hexSelector = document.querySelector('#board').contentDocument.querySelector('hex')
-hexSelector.forEach(hx =>{
+/**
+ * Responds to messages from Server
+ * @param {string} event JSON string format of the Game
+ */
+socket.onmessage = event => {
 
-    hx.addEventListener('click', function() { socket.send(this.id) });
+    const gameState = JSON.parse(event.data);
 
-})
+    updateBoard(gameState.board);
+    updateTilesCount(gameState.stonesPlaced);
+    notify(gameState.winner, gameState.state);
+
+    switch(gameState.state){
+        case "RUNNING": startTimer(gameState.startedAt); break;
+        case "WON": clearInterval(totalTime); break;
+        default: 
+            break;
+    }
+
+}
+
+/**
+ * Adds event listeners for event 'click' to each tile
+ */
+document.addEventListener('DOMContentLoaded', () =>{
+    let board = document.querySelector('#boardSVG');
+    board.addEventListener('load', () =>{
+        let tiles = board.contentDocument.querySelectorAll('.tile');
+        for(let tile of tiles) tile.addEventListener('click', function(){
+            socket.send(this.id.toString().replace("t", ""));
+            clickSound.play();
+        })
+    })
+});
 
 
 
-// Based on the message from server, the tiles will be colored
-function colorTiles(messageArr){
-    for(let i = 0; i < messageArr.length; i++){
-        let index = i + 1;
-        const hex = document.getElementById(index);
-        if(messageArr[i] === 1){
-            hex.style.color = "#50fa7b";
+/**
+ * Colors the tiles of the Hex game board
+ * @param {array} board An array indicating the colors of each tile
+ */
+function updateBoard(board){
+    
+    let svgDoc = document.getElementById('boardSVG');
+    let hexBoard = svgDoc.contentDocument;
+    
+    for(let i = 0; i < board.length; i++){
+        if(board[i] === "g"){
+            hexBoard.getElementById("t" + i).style.fill = "#50fa7b";
         }
-        if(messageArr[i] === 2){
-            hex.style.color = "#ff5555";
+        if(board[i] === "r"){
+            hexBoard.getElementById("t" + i).style.fill = "#ff5555";
+        }
+        if(board[i] === null){
+            continue;
         }
     }
 }
 
-// Update the number of tiles on board - expects parameter from server
+
+/**
+ * Updates the current number of tiles of Hex game board
+ * @param {number} count The current number of tiles placed on Hex game board
+ */
 function updateTilesCount(count) {
-    const takenNum = docoument.querySelector(".takenNumber");
-    takenNum.textContent = count;
+    document.getElementById("takenNum").innerHTML = "Pieces on board: " + count;
 }
 
 
-const timer = document.getElementById("timer");
-timer.addEventListener("DOMContentLoaded", startTimer);
-
-let start;
-let timePassed;
-let totalTime; 
-
-function startTimer(){
-    start = Date.now();
+/**
+ * Updates the time elapsed of the current game
+ * @param {number} start The time current game started in Unix time
+ */
+function startTimer(start){
     totalTime = setInterval(function showTime(){
-        timePassed = Date.now() - start;
-        document.getElementById("timer").innerHTML = setTimer(timePassed);
-        // timer.innerHTML = setTimer(timePassed);
+        let timePassed = new Date(Date.now() - new Date(start));
+        document.getElementById("timer").innerHTML = "Time Elapsed : " 
+        + timePassed.getUTCHours().toString().padStart(2, "0") + ":" 
+        + timePassed.getUTCMinutes().toString().padStart(2, "0") + ":" 
+        + timePassed.getUTCSeconds().toString().padStart(2, "0");
     }, 1000);
 }
 
 
-function setTimer(time){
-    let difHrs = time / 3600000;
-    let hours = Math.floor(diffInHrs);
-    let difMin = (difHrs - hours) * 60;
-    let min = Math.floor(difMin);
-    let difSec = (difMin - min) * 60;
-    let sec = Math.floor(difSec);
 
-    let hrString = hours.toString().padStart(2, "0");
-    let minString = min.toString().padStart(2, "0");
-    let secString = sec.toString().padStart(2, "0");
-
-    return `${hrString}:${minString}:${secString}`;
-
+/**
+ * Notifies all players of the current state of Hex game
+ * @param {string} winColor The color of Player who won the game
+ * @param {string} state The current state of the game
+ */
+function notify(winColor, state){
+    let announce = document.getElementById("notify");
+    if(winColor === null && state === "ABORTED"){
+        announce.innerHTML = "The game has been aborted!";
+    }
+    else if(winColor === null && state === "WAITING"){
+        announce.innerHTML = "Waiting on more players...";
+    }
+    else if(winColor === null && state === "RUNNING"){
+        announce.innerHTML = "";
+    }
+    else{
+        winSound.play();
+        clearInterval(totalTime);
+        if(winColor === "green"){
+            announce.setAttribute('class', "greenWin");
+        }
+        else{
+            announce.setAttribute('class', "redWin");
+        }
+        announce.innerHTML = "Player " + winColor + " has won the game!";
+    }
 }
-
-
-// will wait on a message from server to say that someone won 
-function notifyEnd(color){
-    gameOver(color);
-}
-
-function gameOver(winColor){
-    let announce = document.createElement('h1');
-    announce.textContent = `${winColor} has won the game!`;
-    resetButton = document.createElement('button');
-    resetButton.textContent = 'Start a new game';
-    document.body.appendChild(resetButton);
-    resetButton.addEventListener('click', resetGame);
-
-    clearInterval(totalTime);
-    timer.innterHTML = "00:00:00";
-}
-
-
-
-socket.onmessage = function(event){
-    //target.innerHTML = event.data;
-};
-
-socket.onopen = function(){
-    // start = new Date();
-    socket.send("Hello from the client!");
-    //target.innerHTML = "Sending a first message to the server ...";
-};
-
-socket.send("tile 3 has been clicked!");
