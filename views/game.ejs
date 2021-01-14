@@ -4,31 +4,39 @@
     <meta charset="utf-8">
 
     <title>Hex Game</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-
-    <style>
-      html {
-        font-family: 'Courier New', Courier, monospace;
-      }
-
-      .lastResult {
-        color: #282a36;
-        padding: 3px;
-      }
-    </style>
+    <link rel="stylesheet" href="stylesheets/game.css">
   </head>
 
   <body style = "background-color:#282a36">
-    <h2 style = "color:#f8f8f2;">Time elapsed : </h2>
-    <h2 style = "color:#f8f8f2;">Pieces on board : </h2>    
-    <div id="timer" class="timer" onload="startTimer"></div>
-    <div id="takenNumber">00:00:00</div>
-    <div class = "hexagon" id ="player1"></div>
-    <div class = "hexagon" id = "playe2"></div>
-    <div class = "hexagons">
-        <object id="board" data="/images/board.svg">board</object>
-    </div>
+    <h1 class = "notify" id = "notify"></h1>
+    <table id = "icons" width=250 cellpadding=15>
+      <tr>
+        <td>
+          <div class = "playerRed"> Player 1</div>
+        </td>
+        <td>
+          <div class = "hexagonRed">
+            <div class = "hexagonRed" id = "playerRed"></div>
+          </div>
+        </td>
+        <td>
+          <h2 style = "color:#f8f8f2;" id = "timer">Time elapsed : 00:00:00</h2>
+          <h2 style = "color:#f8f8f2;" id = "takenNum">Pieces on board : 0</h2>
+        </td>
+        <td>
+          <div class = "hexagonGreen">
+            <div class = "hexagonGreen" id = "playerGreen"></div>
+          </div>
+        </td>
+        <td>
+          <div class = "playerGreen"> Player 2</div>
+        </td>
+      </tr>
+    </table>
     <script src = '/javascripts/game.js'>
     </script>
   </body>
+  <div class = "hexagons">
+    <object class = "hexBoard" id="boardSVG" data="/images/board.svg">board</object>
+  </div>
 </html>
