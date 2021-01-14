@@ -7,21 +7,33 @@ var totalTime;
  * Responds to messages from Server
  * @param {string} event JSON string format of the Game
  */
-socket.onmessage = event => {
+socket.onmessage = function (event){
 
-    const gameState = JSON.parse(event.data);
+    let gameState = JSON.parse(event.data);
+    setGameState(gameState);  
 
+}
+
+/**
+ * Updates the Hex game board based on the state of current game
+ * @param {string} gameState The current state of the current game 
+ */
+function setGameState(gameState){
     updateBoard(gameState.board);
     updateTilesCount(gameState.stonesPlaced);
     notify(gameState.winner, gameState.state);
+    setPlayerRole(gameState.player);
 
     switch(gameState.state){
-        case "RUNNING": startTimer(gameState.startedAt); break;
-        case "WON": clearInterval(totalTime); break;
-        default: 
+        case "RUNNING": if(totalTime === undefined) {
+            startTimer(gameState.startedAt);
+            setPlayerRole(gameState.player);
+        }    
+        break;
+        case "WON": clearInterval(totalTime);  break;
+        default:
             break;
     }
-
 }
 
 /**
@@ -31,12 +43,14 @@ document.addEventListener('DOMContentLoaded', () =>{
     let board = document.querySelector('#boardSVG');
     board.addEventListener('load', () =>{
         let tiles = board.contentDocument.querySelectorAll('.tile');
+        console.log(tiles);
         for(let tile of tiles) tile.addEventListener('click', function(){
             socket.send(this.id.toString().replace("t", ""));
             clickSound.play();
         })
     })
 });
+
 
 
 
@@ -106,7 +120,6 @@ function notify(winColor, state){
     }
     else{
         winSound.play();
-        clearInterval(totalTime);
         if(winColor === "green"){
             announce.setAttribute('class', "greenWin");
         }
@@ -114,5 +127,22 @@ function notify(winColor, state){
             announce.setAttribute('class', "redWin");
         }
         announce.innerHTML = "Player " + winColor + " has won the game!";
+        document.getElementById("timer").innerHTML = "Time Elapsed : 00:00:00";
+    }
+}
+
+
+/**
+ * Sets the game screen according to the role of the player
+ * @param {string} player The player's role in the game as red or green 
+ */
+function setPlayerRole(player){
+    if(player == "red"){
+        document.getElementById("player1").innerHTML = "You";
+        document.getElementById("player2").innerHTML = "Opponent";
+    }
+    else{
+        document.getElementById("player2").innerHTML = "You";
+        document.getElementById("player1").innerHTML = "Opponent";
     }
 }
