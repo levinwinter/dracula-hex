@@ -22,7 +22,6 @@ function setGameState(gameState){
     updateBoard(gameState.board);
     updateTilesCount(gameState.stonesPlaced);
     notify(gameState.winner, gameState.state);
-    setPlayerRole(gameState.player);
 
     switch(gameState.state){
         case "RUNNING": if(totalTime === undefined) {
@@ -43,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () =>{
     let board = document.querySelector('#boardSVG');
     board.addEventListener('load', () =>{
         let tiles = board.contentDocument.querySelectorAll('.tile');
-        console.log(tiles);
         for(let tile of tiles) tile.addEventListener('click', function(){
             socket.send(this.id.toString().replace("t", ""));
             clickSound.play();
@@ -59,10 +57,10 @@ document.addEventListener('DOMContentLoaded', () =>{
  * @param {array} board An array indicating the colors of each tile
  */
 function updateBoard(board){
-    
+
     let svgDoc = document.getElementById('boardSVG');
     let hexBoard = svgDoc.contentDocument;
-    
+
     for(let i = 0; i < board.length; i++){
         if(board[i] === "g"){
             hexBoard.getElementById("t" + i).style.fill = "#50fa7b";
@@ -73,6 +71,7 @@ function updateBoard(board){
         if(board[i] === null){
             continue;
         }
+        
     }
 }
 
@@ -91,6 +90,7 @@ function updateTilesCount(count) {
  * @param {number} start The time current game started in Unix time
  */
 function startTimer(start){
+    document.getElementById("circle").style.visibility = "hidden";
     totalTime = setInterval(function showTime(){
         let timePassed = new Date(Date.now() - new Date(start));
         document.getElementById("timer").innerHTML = "Time Elapsed : " 
@@ -146,3 +146,6 @@ function setPlayerRole(player){
         document.getElementById("player1").innerHTML = "Opponent";
     }
 }
+
+
+
