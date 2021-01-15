@@ -21,7 +21,7 @@ socket.onmessage = function (event){
 function setGameState(gameState){
     updateBoard(gameState.board);
     updateTilesCount(gameState.stonesPlaced);
-    notify(gameState.winner, gameState.state);
+    notify(gameState.winner, gameState.state, gameState.player);
 
     switch(gameState.state){
         case "RUNNING": if(totalTime === undefined) {
@@ -106,8 +106,9 @@ function startTimer(start){
  * Notifies all players of the current state of Hex game
  * @param {string} winColor The color of Player who won the game
  * @param {string} state The current state of the game
+ * @param {string} player The current player connected to this socket
  */
-function notify(winColor, state){
+function notify(winColor, state, player){
     let announce = document.getElementById("notify");
     if(winColor === null && state === "ABORTED"){
         announce.innerHTML = "The game has been aborted!";
@@ -126,7 +127,9 @@ function notify(winColor, state){
         else{
             announce.setAttribute('class', "redWin");
         }
-        announce.innerHTML = "Player " + winColor + " has won the game!";
+
+        if(winColor === player) announce.innerHTML = "You have won the game!";  
+        else announce.innerHTML = "Your opponent has won the game!";
         document.getElementById("timer").innerHTML = "Time Elapsed : 00:00:00";
     }
 }
@@ -146,6 +149,8 @@ function setPlayerRole(player){
         document.getElementById("player1").innerHTML = "Opponent";
     }
 }
+
+
 
 
 
