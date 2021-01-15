@@ -9,6 +9,7 @@
 
   <body style = "background-color:#282a36">
     <h1 class = "notify" id = "notify"></h1>
+    <h1 class = "resolutionErr" visibility = "hidden"></h1>
     <table id = "icons" width=250 cellpadding=15>
       <tr>
         <td>
@@ -33,10 +34,13 @@
         </td>
       </tr>
     </table>
+    <div id = "circle" class = "circle">
+      <div class = "hexagonIn"></div>
+    </div>
+    <div class = "hexagons">
+      <object class = "boardSVG" id="boardSVG" data="/images/board.svg">board</object>
+    </div>
     <script src = '/javascripts/game.js'>
     </script>
   </body>
-  <div class = "hexagons">
-    <object id="boardSVG" data="/images/board.svg">board</object>
-  </div>
 </html>
