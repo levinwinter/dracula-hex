@@ -1,0 +1,36 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+
+    color: #F8F8F2;
+    background: url(/images/background.svg);
+    background-color: #282A36;
+    background-size: cover;
+}
+
+header {
+    margin-top: 10vh;
+    height: 20vh;
+}
+
+main {
+    height: 60vh;
+    margin-bottom: 10vh;
+}
+
+object {
+    width: 100%;
+    height: 100%;
+}
+
+#playSection {
+    height: 30vh;
+}
+
+#statsSection {
+    height: 15vh;
+}
+
+#howToSection {
+    height: 15vh;
+}
