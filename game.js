@@ -135,7 +135,7 @@ function Game(stats) {
     this.notify = function() {
         let notification = {
             board: this.board.flat(),
-            status: this.state,
+            state: this.state,
             stonesPlaced: this.stonesPlaced,
             startedAt: this.gameStartedAt,
             winner: this.winner
