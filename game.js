@@ -115,7 +115,7 @@ function Game(stats) {
         player.on("message", data => this.makeMove(player, data));
         if (this.red !== null && this.green !== null) {
             this.state = "RUNNING";
-            this.gameStartedAt = new Date().getTime();
+            this.gameStartedAt = Date.now();
         }
         this.notify();
     }
