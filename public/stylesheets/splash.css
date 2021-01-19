@@ -3,16 +3,14 @@ header {
     height: 20vh;
 }
 
-g {
-    fill: #bd93f9;
+main img {
     transition: 0.2s;
     transform-origin: 50% 50%;
 }
 
-g:hover {
-    fill: #8be9fd;
-    transform: scale(1.1);
-    transition: 0.2s;
+main img:hover {
+    transform: scale(1.05);
+    filter: hue-rotate(-80deg) saturate(1.1) brightness(1.1);
 }
 
 main {
@@ -20,8 +18,7 @@ main {
     margin-bottom: 10vh;
 }
 
-object, img {
-    width: 100%;
+img {
     height: 100%;
 }
 

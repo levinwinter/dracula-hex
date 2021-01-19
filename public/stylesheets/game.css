@@ -2,6 +2,10 @@
     display: none;
 }
 
+body {
+    display: grid;
+}
+
 @media (max-width: 1000px) , (max-height: 500px) {
     .resolutionErr{
         padding: 3vh;
