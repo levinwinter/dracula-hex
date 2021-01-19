@@ -7,7 +7,7 @@ var websocket = require('ws');
 var Game = require('./game');
 var stats = require('./statistics');
 
-var port = process.argv[2];
+var port = process.env.PORT || 3000;
 var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
