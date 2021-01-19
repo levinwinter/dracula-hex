@@ -21,6 +21,10 @@
 }
 
 .notification {
+    position: absolute;
+    bottom: 4vh;
+    left: 0;
+    right: 0;
     min-height: 10vh;
     display: flex;
     justify-content: center;
