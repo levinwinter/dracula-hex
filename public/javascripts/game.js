@@ -1,4 +1,4 @@
-const socket = new WebSocket("ws://" + location.host);
+const socket = new WebSocket((window.location.protocol === "https:" ? "wss://" : "ws://") + window.location.host);
 let clickSound = new Audio("../data/click.wav");
 let winSound = new Audio("../data/win.wav");
 var totalTime; 
