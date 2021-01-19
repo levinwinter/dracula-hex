@@ -100,10 +100,17 @@ main {
 
 #statistics {
     margin: 0 6vh;
+    transition: 0.5s;
 }
 
 #statistics * {
     display: block;
+}
+
+#statistics:hover {
+    color: #f1fa8c;
+    transform: scale(1.2);
+    transition: 1s;
 }
 
 @keyframes breath {
