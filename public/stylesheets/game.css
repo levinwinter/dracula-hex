@@ -113,6 +113,10 @@ main {
     transition: 1s;
 }
 
+#statistics:active {
+    color: #ff79c6;
+}
+
 @keyframes breath {
     0%   { color: #6272a4; transform: scale(1.0); }
     25%  { color: #8be9fd; transform: scale(1.1); }
