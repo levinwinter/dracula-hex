@@ -4,38 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hex</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
     <link rel="stylesheet" href="stylesheets/splash.css">
 </head>
 <body>
     <header>
-        <object data="images/logo.svg" alt="HEX Logo">Logo</object>
+        <object data="images/logo.svg" alt="HEX Logo">HEX</object>
     </header>
     <main>
-        <section id="playSection">
-            <object class = "play" id="play" data="images/play.svg">Play</object>
+        <section class="play">
+            <object data="images/play.svg">Play</object>
         </section>
-        <section id="statsSection">
+        <section class="statistics">
             <span>
                 Players Online
-                <span>
-                    <%= playersOnline %>
+                <span class="hexagon">
+                    <span><%= playersOnline %></span>
                 </span>
             </span>
             <span>
                 Win Rate of Red
-                <span>
-                    <%= relativeWinsRed %>
+                <span class="hexagon">
+                    <span><%= relativeWinsRed %></span>
                 </span>
             </span>
             <span>
                 Games Played
-                <span>
-                    <%= gamesPlayed %>
+                <span class="hexagon">
+                    <span><%= gamesPlayed %></span>
                 </span>
             </span>
         </section>
-        <section id="howToSection">
-            <object id="help" data="images/help.svg">Help</object>
+        <section class="help">
+            <object data="images/help.svg">Help</object>
         </section>
     </main>
 </body>

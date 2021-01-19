@@ -1,46 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" content="width=500, initial-scale=1">
-
+<head>
+    <meta charset="utf-8" content="width=device-width, initial-scale=1">
     <title>Hex Game</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
     <link rel="stylesheet" href="stylesheets/game.css">
-  </head>
-
-  <body style = "background-color:#282a36">
-    <h1 class = "notify" id = "notify"></h1>
-    <h1 class = "resolutionErr" visibility = "hidden"></h1>
-    <table id = "icons" width=250 cellpadding=15>
-      <tr>
-        <td>
-          <div class = "playerRed" id = "player1"> Player 1</div>
-        </td>
-        <td>
-          <div class = "hexagonRed">
-            <div class = "hexagonRed" id = "playerRed"></div>
-          </div>
-        </td>
-        <td>
-          <h2 style = "color:#f8f8f2;" id = "timer">Time elapsed : 00:00:00</h2>
-          <h2 style = "color:#f8f8f2;" id = "takenNum">Pieces on board : 0</h2>
-        </td>
-        <td>
-          <div class = "hexagonGreen">
-            <div class = "hexagonGreen" id = "playerGreen"></div>
-          </div>
-        </td>
-        <td>
-          <div class = "playerGreen" id = "player2"> Player 2</div>
-        </td>
-      </tr>
-    </table>
-    <div id = "circle" class = "circle">
-      <div class = "hexagonIn"></div>
+</head>
+<body>
+    <div class="resolutionErr">The resolution of your screen is too low.</div>
+    <header>
+        <span id="player1" class="name hasTurn"></span>
+        <span class="hexagon red"><span></span></span>
+        <span id="statistics">
+            <span id="timer">Time Elapsed : 00:00</span>
+            <span id="takenNum">Pieces on Board : 00</span>
+        </span>
+        <span class="hexagon green waiting"><span></span></span>
+        <span id="player2" class="name"></span>
+    </header>
+    <main class="hexagons">
+        <object class = "boardSVG" id="boardSVG" data="/images/board.svg">board</object>
+    </main>
+    <div class="notification">
+    <div id="spin"><div id="breath" class="hexagon"><span></span></div></div>
+        <span class="notify" id="notify"></span>
     </div>
-    <div class = "hexagons">
-      <object class = "boardSVG" id="boardSVG" data="/images/board.svg">board</object>
-    </div>
-    <script src = '/javascripts/game.js'>
-    </script>
-  </body>
+    <script src="/javascripts/game.js"></script>
+</body>
 </html>

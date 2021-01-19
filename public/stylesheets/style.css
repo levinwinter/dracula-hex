@@ -1,37 +1,94 @@
-.body {
-  width: 50%;
-  max-width: 1000px;
-  min-width: 480px;
-  margin: 0 auto;
-  text-align: center; 
+html {
+    width: 100vw;
+    height: 100vh;
 }
-.description{
-  color : #f8f8f2;
-  font-size: large;
-  width: 55%;
-  max-width: 1300px;
-  min-width: 600px;
-  margin: 0 auto;
-  text-align: center; 
-  font-family : 'Courier New', Courier, monospace;
+
+body {
+    margin: 0;
+    font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
+    color: #F8F8F2;
+    text-align: center;
+    background-color: #282A36;
+    background-image: url(/images/background.svg);
+    background-size: cover;
+    background-position: center;
 }
+
+/* .description{
+    color : #f8f8f2;
+    font-size: large;
+    width: 55%;
+    max-width: 1300px;
+    min-width: 600px;
+    margin: 0 auto;
+    text-align: center; 
+    font-family : 'Courier New', Courier, monospace;
+}
+
 .instructions{
-  text-align : center; 
-  color : #f1fa8c;
-  font-family : 'Courier New', Courier, monospace;
+    text-align : center; 
+    color : #f1fa8c;
+    font-family : 'Courier New', Courier, monospace;
+} */
+
+a:link {
+    color : #bd93f9;
 }
-.link:link{
-  width: 55%;
-  font-family : 'Courier New', Courier, monospace;
-  color : #bd93f9;
+
+a:active {
+    color : #f1fa8c;
 }
-.link:visited{
-  width: 55%;
-  text-align: center; 
-  color : #bd93f9;
+
+a:visited {
+    color : #bd93f9;
 }
-.link:active{
-  width: 55%;
-  text-align: center; 
-  color : #f1fa8c;
+
+object {
+    width: 100%;
+    height: 100%;
+}
+
+/* inspired by http://brenna.github.io/csshexagon/ */
+.hexagon {
+    --width: 348px;
+    position: relative;
+    width: var(--width); 
+    height: calc(var(--width) / 1.73205080757); /* width / sqrt(3) */
+    background-color: #44475a;
+    margin: calc(var(--width) / 1.73205080757 / 2) 0; /* width / sqrt(3) / 2 */
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.hexagon:before,
+.hexagon:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: calc(var(--width) / 1.41421356237); /* width / sqrt(2) */
+    height: calc(var(--width) / 1.41421356237); /* width / sqrt(2) */
+    -webkit-transform: scaleY(0.5774) rotate(-45deg);
+    -ms-transform: scaleY(0.5774) rotate(-45deg);
+    transform: scaleY(0.5774) rotate(-45deg);
+    background-color: inherit;
+    left: calc((var(--width) - (var(--width) / 1.41421356237)) / 2);
+    box-shadow: inherit;
+}
+
+.hexagon:before {
+    top: calc(-1 * var(--width) / 1.41421356237 / 2);
+}
+
+.hexagon:after {
+    bottom: calc(-1 * var(--width) / 1.41421356237 / 2);
+}
+
+.hexagon span {
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: var(--width);
+    height: calc(var(--width) / 1.73205080757); /* width / sqrt(3) */
+    z-index: 2;
+    background: inherit;
 }

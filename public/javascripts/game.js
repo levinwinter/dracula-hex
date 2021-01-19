@@ -1,4 +1,4 @@
-const socket = new WebSocket("ws://localhost:3000");
+const socket = new WebSocket("ws://" + location.host);
 let clickSound = new Audio("../data/click.wav");
 let winSound = new Audio("../data/win.wav");
 var totalTime; 
@@ -22,13 +22,14 @@ function setGameState(gameState){
     updateBoard(gameState.board);
     updateTilesCount(gameState.stonesPlaced);
     notify(gameState.winner, gameState.state, gameState.player);
+    setPlayerRole(gameState.player);
 
     switch(gameState.state){
         case "RUNNING": if(totalTime === undefined) {
             startTimer(gameState.startedAt);
-            setPlayerRole(gameState.player);
         }    
         break;
+        case "ABORTED":
         case "WON": clearInterval(totalTime);  break;
         default:
             break;
@@ -81,7 +82,20 @@ function updateBoard(board){
  * @param {number} count The current number of tiles placed on Hex game board
  */
 function updateTilesCount(count) {
-    document.getElementById("takenNum").innerHTML = "Pieces on board: " + count;
+    document.getElementById("takenNum").innerHTML = "Pieces on Board : " + count.toString().padStart(2, "0");
+    let red = document.querySelector(".hexagon.red");
+    let green = document.querySelector(".hexagon.green");
+    if (count % 2 === 0) {
+        red.classList.remove("waiting");
+        red.classList.add("hasTurn");
+        green.classList.remove("hasTurn");
+        green.classList.add("waiting");
+    } else {
+        green.classList.remove("waiting");
+        green.classList.add("hasTurn");
+        red.classList.remove("hasTurn");
+        red.classList.add("waiting");
+    }
 }
 
 
@@ -90,11 +104,11 @@ function updateTilesCount(count) {
  * @param {number} start The time current game started in Unix time
  */
 function startTimer(start){
-    document.getElementById("circle").style.visibility = "hidden";
+    document.querySelector("#spin > .hexagon#breath").style.visibility = "hidden";
     totalTime = setInterval(function showTime(){
         let timePassed = new Date(Date.now() - new Date(start));
         document.getElementById("timer").innerHTML = "Time Elapsed : " 
-        + timePassed.getUTCHours().toString().padStart(2, "0") + ":" 
+        // + timePassed.getUTCHours().toString().padStart(2, "0") + ":" 
         + timePassed.getUTCMinutes().toString().padStart(2, "0") + ":" 
         + timePassed.getUTCSeconds().toString().padStart(2, "0");
     }, 1000);
@@ -114,23 +128,22 @@ function notify(winColor, state, player){
         announce.innerHTML = "The game has been aborted!";
     }
     else if(winColor === null && state === "WAITING"){
-        announce.innerHTML = "Waiting on more players...";
+        announce.innerHTML = "Waiting for a second player...";
     }
     else if(winColor === null && state === "RUNNING"){
         announce.innerHTML = "";
     }
     else{
         winSound.play();
-        if(winColor === "green"){
-            announce.setAttribute('class', "greenWin");
+        if(winColor === player){
+            announce.classList.add("green");
+            announce.innerHTML = "You have won the game!";  
         }
         else{
-            announce.setAttribute('class', "redWin");
+            announce.classList.add("red");
+            announce.innerHTML = "Your opponent has won the game!";
         }
-
-        if(winColor === player) announce.innerHTML = "You have won the game!";  
-        else announce.innerHTML = "Your opponent has won the game!";
-        document.getElementById("timer").innerHTML = "Time Elapsed : 00:00:00";
+        // document.getElementById("timer").innerHTML = "Time Elapsed : 00:00:00";
     }
 }
 
