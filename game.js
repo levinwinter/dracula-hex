@@ -11,11 +11,7 @@ function Game(stats) {
     this.state = "WAITING";
     this.gameStartedAt = null;
     this.stonesPlaced = 0;
-    this.board = function() {
-        let board = [];
-        for (let i = 0; i < 11; i++) board[i] = new Array(11).fill(null);
-        return board
-    }();
+    this.board = new Array(11).fill().map(() => new Array(11).fill(null));
 
     this.stats = stats;
 
@@ -54,10 +50,7 @@ function Game(stats) {
      * @param {array} visited An array indicating which tiles have been visited before.
      */
     this.connected = function(x, y, letter, winningCondition, visited) {
-        if (visited === null) {
-            visited = [];
-            for (let i = 0; i < 11; i++) visited[i] = new Array(11).fill(false);
-        }
+        if (visited === null) visited = new Array(11).fill().map(() => new Array(11).fill(false));
         if (visited[y][x]) return false;
         if (this.board[y][x] !== letter) return false;
         if (winningCondition(x, y)) return true;
@@ -144,6 +137,7 @@ function Game(stats) {
         if (this.red !== null && this.red.readyState === this.red.OPEN) this.red.send(JSON.stringify(notification));
         notification.player = "green";
         if (this.green !== null && this.green.readyState === this.green.OPEN) this.green.send(JSON.stringify(notification));
+        console.log(this.board);
     }
 
 }

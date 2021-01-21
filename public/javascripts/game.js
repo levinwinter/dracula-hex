@@ -8,10 +8,8 @@ var totalTime;
  * @param {string} event JSON string format of the Game
  */
 socket.onmessage = function (event){
-
     let gameState = JSON.parse(event.data);
-    setGameState(gameState);  
-
+    setGameState(gameState);
 }
 
 /**
@@ -23,16 +21,10 @@ function setGameState(gameState){
     updateTilesCount(gameState.stonesPlaced);
     notify(gameState.winner, gameState.state, gameState.player);
     setPlayerRole(gameState.player);
-
     switch(gameState.state){
-        case "RUNNING": if(totalTime === undefined) {
-            startTimer(gameState.startedAt);
-        }    
-        break;
-        case "ABORTED":
-        case "WON": clearInterval(totalTime);  break;
-        default:
-            break;
+        case "RUNNING": if (totalTime === undefined) startTimer(gameState.startedAt); break;
+        case "ABORTED": case "WON": clearInterval(totalTime);  break;
+        default: break;
     }
 }
 
@@ -43,39 +35,26 @@ document.addEventListener('DOMContentLoaded', () =>{
     let board = document.querySelector('#boardSVG');
     board.addEventListener('load', () =>{
         let tiles = board.contentDocument.querySelectorAll('.tile');
-        for(let tile of tiles) tile.addEventListener('click', function(){
+        for (let tile of tiles) tile.addEventListener('click', function() {
             socket.send(this.id.toString().replace("t", ""));
             clickSound.play();
         })
     })
 });
 
-
-
-
 /**
  * Colors the tiles of the Hex game board
  * @param {array} board An array indicating the colors of each tile
  */
-function updateBoard(board){
-
+function updateBoard(board) {
     let svgDoc = document.getElementById('boardSVG');
     let hexBoard = svgDoc.contentDocument;
-
-    for(let i = 0; i < board.length; i++){
-        if(board[i] === "g"){
-            hexBoard.getElementById("t" + i).style.fill = "#50fa7b";
-        }
-        if(board[i] === "r"){
-            hexBoard.getElementById("t" + i).style.fill = "#ff5555";
-        }
-        if(board[i] === null){
-            continue;
-        }
-        
+    for (let i = 0; i < board.length; i++) {
+        let tile = hexBoard.getElementById("t" + i);
+        if(board[i] === "g") tile.style.fill = "#50fa7b";
+        if(board[i] === "r") tile.style.fill = "#ff5555";
     }
 }
-
 
 /**
  * Updates the current number of tiles of Hex game board
@@ -98,7 +77,6 @@ function updateTilesCount(count) {
     }
 }
 
-
 /**
  * Updates the time elapsed of the current game
  * @param {number} start The time current game started in Unix time
@@ -108,13 +86,10 @@ function startTimer(start){
     totalTime = setInterval(function showTime(){
         let timePassed = new Date(Date.now() - new Date(start));
         document.getElementById("timer").innerHTML = "Time Elapsed : " 
-        // + timePassed.getUTCHours().toString().padStart(2, "0") + ":" 
         + timePassed.getUTCMinutes().toString().padStart(2, "0") + ":" 
         + timePassed.getUTCSeconds().toString().padStart(2, "0");
     }, 1000);
 }
-
-
 
 /**
  * Notifies all players of the current state of Hex game
@@ -124,46 +99,31 @@ function startTimer(start){
  */
 function notify(winColor, state, player){
     let announce = document.getElementById("notify");
-    if(winColor === null && state === "ABORTED"){
-        announce.innerHTML = "The game has been aborted!";
-    }
-    else if(winColor === null && state === "WAITING"){
-        announce.innerHTML = "Waiting for a second player...";
-    }
-    else if(winColor === null && state === "RUNNING"){
-        announce.innerHTML = "";
-    }
-    else{
+    if (winColor === null && state === "ABORTED") announce.innerHTML = "The game has been aborted!";
+    else if (winColor === null && state === "WAITING") announce.innerHTML = "Waiting for a second player...";
+    else if (winColor === null && state === "RUNNING") announce.innerHTML = "";
+    else {
         winSound.play();
-        if(winColor === player){
+        if (winColor === player) {
             announce.classList.add("green");
             announce.innerHTML = "You have won the game!";  
-        }
-        else{
+        } else {
             announce.classList.add("red");
             announce.innerHTML = "Your opponent has won the game!";
         }
-        // document.getElementById("timer").innerHTML = "Time Elapsed : 00:00:00";
     }
 }
-
 
 /**
  * Sets the game screen according to the role of the player
  * @param {string} player The player's role in the game as red or green 
  */
 function setPlayerRole(player){
-    if(player == "red"){
+    if (player == "red") {
         document.getElementById("player1").innerHTML = "You";
         document.getElementById("player2").innerHTML = "Opponent";
-    }
-    else{
+    } else {
         document.getElementById("player2").innerHTML = "You";
         document.getElementById("player1").innerHTML = "Opponent";
     }
 }
-
-
-
-
-
