@@ -137,7 +137,6 @@ function Game(stats) {
         if (this.red !== null && this.red.readyState === this.red.OPEN) this.red.send(JSON.stringify(notification));
         notification.player = "green";
         if (this.green !== null && this.green.readyState === this.green.OPEN) this.green.send(JSON.stringify(notification));
-        console.log(this.board);
     }
 
 }

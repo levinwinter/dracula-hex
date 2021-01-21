@@ -1,6 +1,7 @@
 {
-  "name": "hex",
-  "version": "0.0.0",
+  "name": "dracula-hex",
+  "displayName": "Dracula Hex",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node app.js"

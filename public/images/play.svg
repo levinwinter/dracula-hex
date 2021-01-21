@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg width="355.291" height="401.96" viewBox="0 0 355.291 401.96" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:bx="https://boxy-svg.com">
+<svg width="355.291" height="401.96" viewBox="0 0 355.291 401.96" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
   <defs>
     <filter id="shadow" x="-500%" y="-500%" width="1000%" height="1000%" bx:preset="drop-shadow 1 0 0 20 0.7 rgba(0,0,0,0.3)">
       <feGaussianBlur in="SourceAlpha" stdDeviation="20"/>
@@ -14,24 +14,8 @@
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <style>
-      g {
-        fill: #bd93f9;
-        transition: 0.2s;
-        transform-origin: 50% 50%;
-      }
-
-      g:hover {
-        fill: #8be9fd;
-        transform: scale(1.1);
-        transition: 0.2s;
-      }
-    </style>
   </defs>
   <g>
-    <a href="/play" target="_parent">
-      <path d="M 178.4 169.022 L 326.471 254.511 L 326.471 425.489 L 178.4 510.978 L 30.329 425.489 L 30.329 254.511 Z" style="filter: url(#shadow);" transform="matrix(1, 0.000049, -0.000049, 1, -0.737839, -139.028732)" id="play" bx:shape="n-gon 178.4 340 170.978 170.978 6 0 1@063bb9b0"/>
-      <path d="M 211.533 181.683 L 270.285 283.445 L 152.781 283.445 L 211.533 181.683 Z" style="fill: rgb(38, 42, 53);" transform="matrix(0, 1, -1, 0, 427.370575, -10.058279)" bx:shape="triangle 152.781 181.683 117.504 101.762 0.5 0 1@76761285"/>
-    </a>
+    <path d="M 177.654 30.002 L 325.721 115.498 L 325.712 286.476 L 177.637 371.958 L 29.57 286.462 L 29.579 115.484 Z M 143.926 142.723 L 143.926 260.227 L 245.688 201.475 Z" style="filter: url(#shadow); fill: rgb(189, 147, 249);" id="play"/>
   </g>
 </svg>

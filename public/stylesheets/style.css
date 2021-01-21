@@ -14,23 +14,6 @@ body {
     background-position: center;
 }
 
-/* .description{
-    color : #f8f8f2;
-    font-size: large;
-    width: 55%;
-    max-width: 1300px;
-    min-width: 600px;
-    margin: 0 auto;
-    text-align: center; 
-    font-family : 'Courier New', Courier, monospace;
-}
-
-.instructions{
-    text-align : center; 
-    color : #f1fa8c;
-    font-family : 'Courier New', Courier, monospace;
-} */
-
 a:link {
     color : #bd93f9;
 }
