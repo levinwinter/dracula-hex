@@ -31,14 +31,12 @@ function setGameState(gameState){
 /**
  * Adds event listeners for event 'click' to each tile
  */
-document.addEventListener('DOMContentLoaded', () =>{
+addEventListener('load', () =>{
     let board = document.querySelector('#boardSVG');
-    board.addEventListener('load', () =>{
-        let tiles = board.contentDocument.querySelectorAll('.tile');
-        for (let tile of tiles) tile.addEventListener('click', function() {
-            socket.send(this.id.toString().replace("t", ""));
-            clickSound.play();
-        })
+    let tiles = board.contentDocument.querySelectorAll('.tile');
+    for (let tile of tiles) tile.addEventListener('click', function() {
+        socket.send(this.id.toString().replace("t", ""));
+        clickSound.play();
     })
 });
 
